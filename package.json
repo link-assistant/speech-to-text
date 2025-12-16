@@ -1,7 +1,7 @@
 {
-  "name": "my-package",
+  "name": "@link-assistant/speech-to-text",
   "version": "0.1.0",
-  "description": "A JavaScript/TypeScript package template for AI-driven development",
+  "description": "Speech-to-text transcription library and CLI tool with multiple AI provider support",
   "type": "module",
   "main": "src/index.js",
   "types": "src/index.d.ts",
@@ -10,6 +10,9 @@
       "types": "./src/index.d.ts",
       "import": "./src/index.js"
     }
+  },
+  "bin": {
+    "speech-to-text": "./src/cli.js"
   },
   "scripts": {
     "test": "node --test tests/",
@@ -26,19 +29,33 @@
     "changeset:status": "changeset status --since=origin/main"
   },
   "keywords": [
-    "template",
-    "javascript",
-    "typescript",
-    "ai-driven"
+    "speech-to-text",
+    "transcription",
+    "whisper",
+    "openai",
+    "groq",
+    "huggingface",
+    "audio",
+    "cli",
+    "server",
+    "rest-api"
   ],
-  "author": "",
+  "author": "link-assistant",
   "license": "Unlicense",
   "repository": {
     "type": "git",
-    "url": "https://github.com/link-foundation/js-ai-driven-development-pipeline-template"
+    "url": "https://github.com/link-assistant/speech-to-text"
   },
   "engines": {
     "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "groq-sdk": "^0.7.0",
+    "lino-arguments": "^0.0.24",
+    "multer": "^1.4.5-lts.1",
+    "openai": "^4.20.0"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.7",
