@@ -47,9 +47,7 @@ export class DeepInfraProvider {
 
     if (!response.ok) {
       const errorText = await response.text();
-      throw new Error(
-        `DeepInfra API error: ${response.status} - ${errorText}`
-      );
+      throw new Error(`DeepInfra API error: ${response.status} - ${errorText}`);
     }
 
     const result = await response.json();

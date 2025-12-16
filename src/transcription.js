@@ -41,7 +41,8 @@ function createHookChain(fn, hooks = []) {
     let modifiedOptions = options;
     for (const hook of hooks) {
       if (hook.before) {
-        modifiedOptions = (await hook.before(modifiedOptions)) || modifiedOptions;
+        modifiedOptions =
+          (await hook.before(modifiedOptions)) || modifiedOptions;
       }
     }
 
@@ -173,20 +174,15 @@ export async function transcribe(options) {
     let errorMsg = `All providers failed. Last error: ${lastError?.message}`;
     const hints = [];
     for (const { provider: prov, error } of failedProviders) {
-      const errorLower = error.toLowerCase();
       if (error.includes('401') || error.includes('403')) {
-        hints.push(
-          `• ${prov}: Authentication failed. Check your API key.`
-        );
+        hints.push(`• ${prov}: Authentication failed. Check your API key.`);
       } else if (error.includes('429')) {
-        hints.push(
-          `• ${prov}: Rate limit exceeded. Wait before retrying.`
-        );
+        hints.push(`• ${prov}: Rate limit exceeded. Wait before retrying.`);
       }
     }
 
     if (hints.length > 0) {
-      errorMsg += '\n\nTroubleshooting hints:\n' + hints.join('\n');
+      errorMsg += `\n\nTroubleshooting hints:\n${hints.join('\n')}`;
     }
 
     throw new Error(errorMsg);
@@ -219,7 +215,7 @@ export class TranscriptionService {
     return getAvailableProviders({ providers: this.providers });
   }
 
-  async transcribe(audioPath, providerName = null) {
+  transcribe(audioPath, providerName = null) {
     return transcribe({
       audioPath,
       providers: this.providers,

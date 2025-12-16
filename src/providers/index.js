@@ -202,9 +202,7 @@ export class OpenAICompatibleProvider {
       } catch (error) {
         const errorMsg = error.message || String(error);
         const shortError = errorMsg.substring(0, 100);
-        console.warn(
-          `  ✗ Failed with model ${modelName}: ${shortError}...`
-        );
+        console.warn(`  ✗ Failed with model ${modelName}: ${shortError}...`);
         errors.push({ model: modelName, error: errorMsg });
 
         if (modelName !== models[models.length - 1]) {

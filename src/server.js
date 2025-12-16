@@ -80,7 +80,7 @@ export function createApp(options = {}) {
       // Clean up temp file
       try {
         fs.unlinkSync(req.file.path);
-      } catch (e) {
+      } catch (_e) {
         // Ignore cleanup errors
       }
     }
