@@ -9,7 +9,6 @@
  */
 
 import fs from 'fs';
-import path from 'path';
 import { makeConfig } from 'lino-arguments';
 import { TranscriptionService } from './transcription.js';
 import { startServer } from './server.js';
@@ -168,7 +167,9 @@ async function main() {
   }
 
   if (config.verbose) {
-    console.log(`Available providers: ${service.getAvailableProviders().join(', ')}`);
+    console.log(
+      `Available providers: ${service.getAvailableProviders().join(', ')}`
+    );
     console.log(`Transcribing: ${audioFile}`);
     if (config.provider) {
       console.log(`Using provider: ${config.provider}`);
