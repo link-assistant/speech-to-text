@@ -7,8 +7,8 @@ export { DeepInfraProvider } from './deepinfra.js';
 /**
  * HuggingFace provider for transcription.
  */
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 
 export class HuggingFaceProvider {
   constructor({ apiKey, model = 'whisper-large-v3' }) {

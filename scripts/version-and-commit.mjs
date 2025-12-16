@@ -12,7 +12,7 @@
  * - lino-arguments: Unified configuration from CLI args, env vars, and .lenv files
  */
 
-import { readFileSync, appendFileSync, readdirSync } from 'fs';
+import { readFileSync, appendFileSync, readdirSync } from 'node:fs';
 
 // Load use-m dynamically
 const { use } = eval(

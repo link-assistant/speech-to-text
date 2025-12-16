@@ -6,7 +6,7 @@
  */
 
 import { readdir, readFile } from 'fs/promises';
-import { join, relative } from 'path';
+import { join, relative } from 'node:path';
 
 const MAX_LINES = 1000;
 const FILE_EXTENSIONS = ['.js', '.mjs', '.cjs'];

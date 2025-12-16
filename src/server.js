@@ -4,9 +4,9 @@
 
 import cors from 'cors';
 import express from 'express';
-import fs from 'fs';
+import fs from 'node:fs';
 import multer from 'multer';
-import os from 'os';
+import os from 'node:os';
 import { TranscriptionService } from './transcription.js';
 
 /**

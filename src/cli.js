@@ -8,7 +8,7 @@
  * 2. Server mode (--serve): Run as REST API server
  */
 
-import fs from 'fs';
+import fs from 'node:fs';
 import { makeConfig } from 'lino-arguments';
 import { TranscriptionService } from './transcription.js';
 import { startServer } from './server.js';

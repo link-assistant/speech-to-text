@@ -2,8 +2,8 @@
  * DeepInfra provider for speech-to-text transcription.
  */
 
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 
 export class DeepInfraProvider {
   constructor({ apiKey, model = 'openai/whisper-large-v3' }) {
