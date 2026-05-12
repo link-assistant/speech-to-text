@@ -1,6 +1,6 @@
 {
   "name": "@link-assistant/speech-to-text",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Speech-to-text transcription library and CLI tool with multiple AI provider support",
   "type": "module",
   "main": "src/index.js",
