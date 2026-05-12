@@ -6,11 +6,11 @@
  * IMPORTANT: Update the package name below to match your package.json
  */
 
-import { readdirSync, readFileSync } from 'fs';
-import { join } from 'path';
+import { readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 
 // TODO: Update this to match your package name in package.json
-const PACKAGE_NAME = 'my-package';
+const PACKAGE_NAME = '@link-assistant/speech-to-text';
 
 try {
   // Count changeset files (excluding README.md and config.json)

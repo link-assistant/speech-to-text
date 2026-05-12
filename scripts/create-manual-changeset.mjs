@@ -12,7 +12,7 @@
  * - lino-arguments: Unified configuration from CLI args, env vars, and .lenv files
  */
 
-import { writeFileSync } from 'fs';
+import { writeFileSync } from 'node:fs';
 import { randomBytes } from 'crypto';
 
 // TODO: Update this to match your package name in package.json

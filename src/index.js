@@ -1,28 +1,79 @@
 /**
- * Example module entry point
- * Replace this with your actual implementation
+ * Speech-to-text transcription library.
+ *
+ * This library provides both function-based and class-based APIs for
+ * audio transcription using multiple AI providers (OpenAI, Groq, HuggingFace, etc.).
+ *
+ * @example Function-based API
+ * ```js
+ * import { transcribe, initializeProviders } from '@link-assistant/speech-to-text';
+ *
+ * const providers = initializeProviders({
+ *   inferencePriority: ['openai', 'groq'],
+ *   openaiApiKey: process.env.OPENAI_API_KEY,
+ *   groqApiKey: process.env.GROQ_API_KEY,
+ * });
+ *
+ * const result = await transcribe({
+ *   audioPath: './audio.mp3',
+ *   providers,
+ * });
+ * console.log(result.text);
+ * ```
+ *
+ * @example Class-based API
+ * ```js
+ * import { TranscriptionService } from '@link-assistant/speech-to-text';
+ *
+ * const service = new TranscriptionService({
+ *   inferencePriority: ['openai', 'groq'],
+ *   openaiApiKey: process.env.OPENAI_API_KEY,
+ *   groqApiKey: process.env.GROQ_API_KEY,
+ * });
+ *
+ * const result = await service.transcribe('./audio.mp3');
+ * console.log(result.text);
+ * ```
+ *
+ * @example With hooks/decorators
+ * ```js
+ * const service = new TranscriptionService({
+ *   inferencePriority: ['openai'],
+ *   openaiApiKey: process.env.OPENAI_API_KEY,
+ *   hooks: [
+ *     {
+ *       before: async (options) => {
+ *         console.log('Starting transcription...');
+ *         return options;
+ *       },
+ *       after: async (result) => {
+ *         console.log('Transcription completed!');
+ *         return result;
+ *       },
+ *     },
+ *   ],
+ * });
+ * ```
  */
 
-/**
- * Example function that adds two numbers
- * @param {number} a - First number
- * @param {number} b - Second number
- * @returns {number} Sum of a and b
- */
-export const add = (a, b) => a + b;
+// Core transcription functions
+export {
+  getAvailableProviders,
+  initializeProviders,
+  transcribe,
+  TranscriptionService,
+} from './transcription.js';
 
-/**
- * Example function that multiplies two numbers
- * @param {number} a - First number
- * @param {number} b - Second number
- * @returns {number} Product of a and b
- */
-export const multiply = (a, b) => a * b;
+// Server functions
+export { createApp, startServer } from './server.js';
 
-/**
- * Example async function
- * @param {number} ms - Milliseconds to wait
- * @returns {Promise<void>}
- */
-export const delay = (ms) =>
-  new Promise((resolve) => globalThis.setTimeout(resolve, ms));
+// Provider classes (for advanced usage)
+export {
+  DeepInfraProvider,
+  DeepSeekProvider,
+  GroqProvider,
+  HuggingFaceProvider,
+  OpenAIProvider,
+  OpenRouterProvider,
+  PiAPIProvider,
+} from './providers/index.js';
